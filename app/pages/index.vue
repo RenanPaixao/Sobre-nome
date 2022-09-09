@@ -33,6 +33,10 @@ const info = reactive<Info>({
 
 async function searchName() {
   try {
+    if (!name.value.trim()) {
+      return
+    }
+
     const [data] = await IBGE.getName(name.value)
 
     info.frequency = data.res.at(-1).frequencia
