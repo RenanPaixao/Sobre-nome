@@ -3,6 +3,7 @@ module.exports = {
   root: true,
   parser: 'vue-eslint-parser',
   parserOptions: {
+    parser: '@typescript-eslint/parser',
     sourceType: 'module',
     ecmaVersion: '2020'
   },
@@ -10,7 +11,9 @@ module.exports = {
     '@nuxtjs/eslint-config-typescript'
   ],
   rules: {
+    'no-mixed-spaces-and-tabs': 'off',
     quotes: ['error', 'single'],
+    'vue/multi-word-component-names': 'off',
     'comma-dangle': ['error', 'never'],
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     semi: ['error', 'never'],
