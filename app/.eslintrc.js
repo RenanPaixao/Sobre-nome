@@ -11,6 +11,8 @@ module.exports = {
     '@nuxtjs/eslint-config-typescript'
   ],
   rules: {
+    'padded-blocks': ['warn', 'never'],
+    'space-before-function-paren': ['warn', 'never'],
     'no-mixed-spaces-and-tabs': 'off',
     quotes: ['error', 'single'],
     'vue/multi-word-component-names': 'off',

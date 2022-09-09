@@ -1,9 +1,9 @@
 <template>
-  <div class="container pt-5">
+  <div class="container pt-5 px-5">
     <h1 class="display-2 text-center">
-      <strong>Sobre Nome</strong>
+      Sobre Nome
     </h1>
-    <main class="main-st">
+    <main>
       <slot />
     </main>
   </div>
