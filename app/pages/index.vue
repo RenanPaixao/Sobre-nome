@@ -4,7 +4,7 @@
       <q-input v-model="name" :disabled="isLoading" />
     </div>
 
-    <div style="min-height: 40vh">
+    <div style="min-height: 35vh">
       <q-button :loading="isLoading" class="d-flex mx-auto mt-4" @click="searchName">
         Buscar
       </q-button>
@@ -14,9 +14,10 @@
       </h1>
     </div>
 
-    <div class="col-3 ms-auto mt-auto">
-      <q-button class="ms-auto d-block mt-5">
+    <div class="col-3 ms-auto mt-auto d-flex">
+      <q-button style="font-size: 0.75rem" theme="secondary" size="small" class="ms-auto d-block mt-5" @click="goToRankPage">
         Os mais populares
+        <q-button class="ms-2" type="icon" icon="q-icon-arrow-right" />
       </q-button>
     </div>
   </div>
@@ -26,6 +27,7 @@
 import { reactive, ref } from 'vue'
 import { IBGE } from '@/services/IBGE'
 import { capitalize } from 'radash'
+import { navigateTo } from '#app'
 
 interface Info {
 	frequency: number
@@ -56,6 +58,10 @@ async function searchName() {
   } finally {
     isLoading.value = false
   }
+}
+
+function goToRankPage() {
+  return navigateTo('/rank')
 }
 
 </script>
