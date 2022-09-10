@@ -1,15 +1,24 @@
 <template>
-  <div class="container">
-    <div class="w-75 mx-auto">
+  <div class="container row row-cols-1">
+    <div class="mx-auto col-8">
       <q-input v-model="name" :disabled="isLoading" />
     </div>
-    <q-button :loading="isLoading" class="d-flex mx-auto mt-4" @click="searchName">
-      Buscar
-    </q-button>
 
-    <h1 v-if="info.frequency && info.name" class="text-center mt-5 pt-3">
-      Existem {{ info.frequency }} pessoas chamadas {{ capitalize(info.name) }} no Brasil.
-    </h1>
+    <div style="min-height: 40vh">
+      <q-button :loading="isLoading" class="d-flex mx-auto mt-4" @click="searchName">
+        Buscar
+      </q-button>
+
+      <h1 v-if="info.frequency && info.name" class="text-center mt-5 pt-3">
+        Existem {{ info.frequency }} pessoas chamadas {{ capitalize(info.name) }} no Brasil.
+      </h1>
+    </div>
+
+    <div class="col-3 ms-auto mt-auto">
+      <q-button class="ms-auto d-block mt-5">
+        Os mais populares
+      </q-button>
+    </div>
   </div>
 </template>
 
@@ -36,6 +45,7 @@ async function searchName() {
     if (!name.value.trim()) {
       return
     }
+    isLoading.value = true
 
     const [data] = await IBGE.getName(name.value)
 
